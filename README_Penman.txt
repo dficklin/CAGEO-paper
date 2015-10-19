@@ -59,6 +59,9 @@ Example data files from 49.44153595 -95.14763641 (just north of Lake of the Wood
 
 4.8 Column "Specific humidity", monthly average specific humidity, kg/kg (converted to relative humidity in the code; see code comments for instructions on how to use relative humidity directly as an input.)
 
+******The calibration time period for the above time period is 1950-1999. This can be changed to any time period by modifyingline 379 to the beginning year of calibration, line 383 to the ending year of calibration, line 397 to the beginning year of calibration and line 401 to the ending year of calibration. ***************  
+
+
 =============================================
 ORIGINAL README FILE FROM JACOBI ET AL., 2013
 =============================================
@@ -78,9 +81,9 @@ This .zip file contains the MATLAB code for the PDSI tool, as well data files an
 
 1. BackTrack.m - This function backtracks through previous PX1 and PX2 values. Backtracking occurs in two instances: (1) after the PPe reaches 100 and (2) when the PPe is zero. In either case, the backtracking function works by backtracking through PX1 and PX2 until reaching a month where PPe = 0. Either PX1 or PX2 is assigned to X as the backtracking progresses.
 
-2. Between0s.m - Established dry and wet spells are indicated by PPe = 0, and abatement of such spells are signified by 0 < PPe < 100. Frequently a possible abatement of an established spell is interrupted by a return to dry or wet conditions, without the spell having ended, and this is indicated by a return of PPe = 0. In such instances – i.e., when non-zero, non-one hundred PPe values occur between values of PPe = 0 – this function is called. 
+2. Between0s.m - Established dry and wet spells are indicated by PPe = 0, and abatement of such spells are signified by 0 < PPe < 100. Frequently a possible abatement of an established spell is interrupted by a return to dry or wet conditions, without the spell having ended, and this is indicated by a return of PPe = 0. In such instances â€“ i.e., when non-zero, non-one hundred PPe values occur between values of PPe = 0 â€“ this function is called. 
 
-3. Count_Loc.m - This is an indexing function that counts the number of locations for which the PDSI is being calculated and logs the beginning and end of each location’s data record.
+3. Count_Loc.m - This is an indexing function that counts the number of locations for which the PDSI is being calculated and logs the beginning and end of each locationâ€™s data record.
 
 4. Function_Ud.m - Called when there is an established wet spell, this function calculates the PPe value for a given month and then either checks for backtracking opportunities or continues through the code.
 
@@ -104,7 +107,7 @@ This .zip file contains the MATLAB code for the PDSI tool, as well data files an
 
 9. Main.m - This function calculates PX1 and PX2 and calls the backtracking loop. If the absolute value of PX1 or PX2 exceeds 1, that value becomes the new PX3.
 
-10. NCDC_soilcnst.txt - This file contains the climate division information needed to accurately replicate the NCDC calculations of PDSI. The first column is the climate division number, the second column is the AWC value for that division, the third column is the B value (which is the NCDC equivalent of Thornthwaite’s PET exponent, a, the fourth column is the climate division heat index, and the fifth column is the negative tangent of the latitude at the centroid of the division.
+10. NCDC_soilcnst.txt - This file contains the climate division information needed to accurately replicate the NCDC calculations of PDSI. The first column is the climate division number, the second column is the AWC value for that division, the third column is the B value (which is the NCDC equivalent of Thornthwaiteâ€™s PET exponent, a, the fourth column is the climate division heat index, and the fifth column is the negative tangent of the latitude at the centroid of the division.
 
 10.1 Column "Climate division", the US climate division number, climate division numbers
 
